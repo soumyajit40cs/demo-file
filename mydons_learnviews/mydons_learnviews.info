@@ -1,0 +1,8 @@
+name = Mydons Learn Views
+description = Mydons module For learning views coding
+core=7.x
+version="7.x-3.20"
+dependencies[] = views
+files[] = mydons_learnviews.module
+files[] = mydons_learnviews.install
+files[] = views/mydons_learnviews.views.inc

@@ -1,0 +1,44 @@
+<?php
+
+function mydons_learnviews_schema(){
+  $schema['mydons_customtable']=array(
+    'description' => 'Mydons Custom DB table',
+      'fields' => array(
+        'mydons_custom_id' => array(
+           'type' => 'serial',
+           'description' => 'Mydons Custom DB table Id field'
+         ),
+         'mydons_custom_title' => array(
+             'type' => 'varchar',
+             'length' => '24',
+             'description' => 'Mydons Custom DB table Title field'
+         ),
+         'mydons_custom_body' => array(
+             'type' => 'varchar',
+             'length' => '250',
+             'description' => 'Mydons Custom DB table Body field'
+         )
+        ),
+        'primary key' => array('mydons_custom_id'),
+        'indexes' => array(
+            'mydons_custom_id' => array('mydons_custom_id'),
+            'mydons_custom_title' => array('mydons_custom_title')
+        )
+
+    );
+
+    return $schema;
+}
+
+/**
+ * Add newcol field to {mytable1} table.
+ */
+function mydons_learnviews_update_7100() {
+  $spec = array(
+    'type' => 'varchar',
+    'description' => "New Col",
+    'length' => 20,
+    'not null' => FALSE,
+  ); 
+  db_add_field( 'mydons_customtable', 'newcol_7100', $spec);
+}
